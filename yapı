@@ -1,0 +1,34 @@
+my_vet_project/
+│
+├── clinic/               # Hayvanlar, sağlık geçmişi ve sahipler için modeller
+│   ├── __init__.py
+│   ├── models.py         # Pet, HealthHistory, Owner modelleri
+│   ├── admin.py
+│   ├── views.py
+│   └── urls.py
+│
+├── appointments/         # Randevularla ilgili modeller
+│   ├── __init__.py
+│   ├── models.py         # Appointment modeli
+│   ├── admin.py
+│   ├── views.py
+│   └── urls.py
+│
+├── services/             # Klinik hizmetleriyle ilgili modeller
+│   ├── __init__.py
+│   ├── models.py         # Service modeli
+│   ├── admin.py
+│   ├── views.py
+│   └── urls.py
+│
+│
+├── accounts/             # Kullanıcı yönetimi
+│   ├── __init__.py
+│   ├── models.py         # User model
+│   ├── views.py          # Login, Register, Profile
+│   ├── urls.py
+│   ├── forms.py          # Registration ve Login formları
+│   └── admin.py
+│
+├── manage.py
+└── requirements.txt
