@@ -19,6 +19,8 @@ from django.urls import path ,include
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),  # Admin paneli
-    path('api/', include('clinic.api.urls')),  # API ile ilgili tüm URL'leri 'clinic/api/urls.py' dosyasına yönlendiriyoruz
+    path('admin/', admin.site.urls), 
+    
+    path('clinic/api/', include('clinic.api.urls')),
+    path('health/api/', include('health.api.urls')),
 ]
