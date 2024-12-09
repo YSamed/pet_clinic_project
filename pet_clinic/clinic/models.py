@@ -1,16 +1,13 @@
 from django.db import models
+from users.models import CustomUser
 
 # Create your models here.
 
 class Owner(models.Model):
-    name = models.CharField(max_length=100 ,unique=True)
-    surname = models.CharField(max_length=100)
-    email = models.EmailField()
-    phone_number = models.CharField(max_length=11)
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name='owner')
 
     def __str__(self):
-        return self.name
-    
+        return f"{self.user.first_name} {self.user.last_name}"
 
 class AnimalType(models.Model):
     name = models.CharField(max_length=100,unique=True)
@@ -21,6 +18,7 @@ class AnimalType(models.Model):
     
 
 class Animal(models.Model):
+    
     STATUS_CHOICES = [
         ('pending', 'Onay Bekliyor'),
         ('active', 'Aktif'), 
