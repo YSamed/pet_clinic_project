@@ -1,14 +1,15 @@
 from rest_framework import serializers
 from users.models import CustomUser
 
+# kullanıcılar için serializer
 class CustomUserSerializer(serializers.ModelSerializer):
-    password = serializers.CharField(write_only=True)
+    password = serializers.CharField(write_only=True) 
 
     class Meta:
         model = CustomUser
         fields = ['id', 'username', 'first_name', 'last_name', 'email', 'phone_number', 'password', 'profile_picture']
         extra_kwargs = {
-            'password': {'write_only': True},
+            'password': {'write_only': True}, # şifrenin sadece yazılabilir olmasını sağlar
         }
     def create(self, validated_data):
         user = CustomUser.objects.create_user(**validated_data)

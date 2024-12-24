@@ -7,13 +7,13 @@ import { Modal } from "@/components/Modal";
 import { ToastContainer } from "react-toastify"; 
 import "react-toastify/dist/ReactToastify.css"; 
 
-
 // Ana Profil Bileşeni
 export function Profile() {
   const [profileData, setProfileData] = useState(null);
   const [animals, setAnimals] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -24,6 +24,7 @@ export function Profile() {
   });
   const [isModalOpen, setIsModalOpen] = useState(false);
   const animalSectionRef = useRef(null);
+
 
   const fetchProfileData = async () => {
     const token = localStorage.getItem("access_token");
@@ -40,7 +41,6 @@ export function Profile() {
       });
   
       if (!userResponse.data || userResponse.data.length === 0) {
-        setError("Kullanıcı verisi bulunamadı.");
         setLoading(false);
         return;
       }
@@ -64,26 +64,22 @@ export function Profile() {
   
       const userId = user.id;
       if (!animalResponse.data || animalResponse.data.length === 0) {
-        setError("Hayvan verisi bulunamadı.");
+        
       } else {
         setAnimals(animalResponse.data.filter((animal) => animal.owner === userId));
       }
   
     } catch (err) {
       if (err.response) {
-        // Hata durumunda gelen yanıtı kontrol et
         setError(err.response.data.detail || "Profil verisi veya hayvanlar alınırken bir hata oluştu.");
       } else {
-        // Diğer hata türlerini ele al
         setError("Bir hata oluştu. Lütfen tekrar deneyin.");
       }
     } finally {
-      setLoading(false); // Yükleme durumunu sonlandır
+      setLoading(false);
     }
   };
   
-  
-
   useEffect(() => {
     fetchProfileData();
   }, []);
@@ -97,7 +93,6 @@ export function Profile() {
     setFormData({ ...formData, profile_picture: file });
   };
   
-
   const scrollToAnimalSection = () => {
     animalSectionRef.current?.scrollIntoView({ behavior: "smooth" });
   };
@@ -128,13 +123,14 @@ export function Profile() {
         </div>
       </div>
 
+      {/* Profil Bölümü */}
       <section className="px-6 pt-24 pb-48 bg-gradient-to-r from-green-100 via-blue-50 to-green-100">
         <div className="container mx-auto">
           <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center lg:items-start lg:justify-between">
             <div className="rounded-xl items-center lg:items-start text-center lg:text-left space-y-6">
               <img
                 className="w-72 h-72 rounded-xl border-2 border-gray-100 shadow-xl object-cover"
-                src={profileData?.profile_picture || "user.jpg"}
+                src={profileData?.profile_picture || "img/user.jpg"}
                 alt="Profile"
               />
             </div>
@@ -202,7 +198,7 @@ export function Profile() {
         handleInputChange={handleInputChange}
         handleFileChange={handleFileChange}
       />
-
+      {/* Hayvanalr Bölümü */}
       <section ref={animalSectionRef} className="py-24 bg-gray-50">
         <AnimalSection animals={animals} />
       </section>

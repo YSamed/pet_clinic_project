@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Input, Button, Typography } from "@material-tailwind/react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios"; 
-import { toast } from "react-toastify"; // Toast bildirimleri
+import { toast } from "react-toastify";
 
 export function SignIn() {
   const [formData, setFormData] = useState({

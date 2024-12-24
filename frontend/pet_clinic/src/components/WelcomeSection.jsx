@@ -75,6 +75,7 @@ const WelcomeSection = () => {
 
       {/* Modal Kısmı */}
       <AppointmentModal isOpen={isModalOpen} closeModal={closeModal} />
+      
     </div>
   );
 };

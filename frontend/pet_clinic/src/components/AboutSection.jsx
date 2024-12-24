@@ -9,7 +9,7 @@ const AboutSection = () =>  {
         <div className="text-center mb-24">
           <PageTitle heading="Hakkımızda" />
           <Typography className="text-lg text-blue-gray-500 mb-6">
-          PetVet , 2004 yılında, veteriner hekim Dr. Samed Erol tarafından kurulmuştur. Hayvan sağlığına olan derin tutkusu ve yıllarca edindiği deneyimle, evcil hayvanların sağlık ihtiyaçlarını en iyi şekilde karşılamak amacıyla kliniğimizi kurmuştur. O günden bu yana, [Veteriner Kliniği Adı] olarak, sevimli dostlarınıza en kaliteli bakımı sunmayı kendimize görev edindik.       Amacımız, hayvanların sağlıklı ve mutlu bir yaşam sürmelerini sağlamak, aynı zamanda sahiplerine güvenli ve kaliteli hizmet sunmaktır. Her hayvan bir aile üyesidir ve biz, onların sağlığına gereken özeni göstermek için burada olmayı sürdürüyoruz.
+          PetVet , 2004 yılında, veteriner hekim Dr. Samed Erol tarafından kurulmuştur. Hayvan sağlığına olan derin tutkusu ve yıllarca edindiği deneyimle, evcil hayvanların sağlık ihtiyaçlarını en iyi şekilde karşılamak amacıyla kliniğimizi kurmuştur. O günden bu yana, PetVet olarak, sevimli dostlarınıza en kaliteli bakımı sunmayı kendimize görev edindik.       Amacımız, hayvanların sağlıklı ve mutlu bir yaşam sürmelerini sağlamak, aynı zamanda sahiplerine güvenli ve kaliteli hizmet sunmaktır. Her hayvan bir aile üyesidir ve biz, onların sağlığına gereken özeni göstermek için burada olmayı sürdürüyoruz.
           </Typography>
         </div>
         

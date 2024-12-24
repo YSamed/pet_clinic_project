@@ -1,12 +1,14 @@
 from django.contrib import admin
 from clinic.models import AnimalType, Animal
 
-# Register your models here.
 
 admin.site.register(AnimalType)
 
-
 @admin.register(Animal)
 class AnimalAdmin(admin.ModelAdmin):
-    list_display = ['name']
-    search_fields = ['name']
+    list_display = ['name', 'animal_type']
+    search_fields = ['name', 'animal_type']  
+    list_filter = ['animal_type']
+    ordering = ['name']
+    
+  

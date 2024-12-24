@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { toast } from "react-toastify"; // Toast bildirimleri
+import { toast } from "react-toastify";
 import { Footer } from "@/widgets/layout";
 import { teamData } from "@/data";
 import WelcomeSection from "@/components/WelcomeSection";
@@ -9,17 +9,15 @@ import AboutSection from "@/components/AboutSection";
 
 export function Home() {
   useEffect(() => {
-    // Eğer giriş yapılmışsa ve "hasLoggedIn" işaretçisi varsa, bildirim göster
     const hasLoggedIn = localStorage.getItem("hasLoggedIn");
 
     if (hasLoggedIn) {
-      // Bildirim göster
+   
       toast.success("Başarıyla giriş yaptınız!");
 
-      // Bildirim gösterildikten sonra flag'i kaldırıyoruz
       localStorage.removeItem("hasLoggedIn");
     }
-  }, []); // Bu useEffect, Home sayfası render edildikten sonra çalışacak
+  }, []); 
 
   return (
     <>

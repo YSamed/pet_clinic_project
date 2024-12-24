@@ -3,18 +3,26 @@ import { Typography, IconButton } from "@material-tailwind/react";
 
 const year = new Date().getFullYear();
 
-export function Footer({ title, description, socials, menus, copyright }) {
+export function Footer({ title, description, socials, menus, copyright, phone }) {
   return (
-    <footer className="relative px-4 pt-8 pb-6">
+    <footer id="footer" className="relative px-4 pt-8 pb-6">
       <div className="container mx-auto">
         <div className="flex flex-wrap pt-6 text-center lg:text-left">
           <div className="w-full px-4 lg:w-6/12">
             <Typography variant="h4" className="mb-4 text-2xl font-bold text-black">
               {title}
             </Typography>
-            <Typography className="font-normal text-black lg:w-2/5">
-              {description}
-            </Typography>
+            <div className="mb-4">
+              <Typography
+                variant="h3"
+                className="font-bold text-lg text-left mt-4"
+              >
+              İletişim : +90 555 123 45 67
+              </Typography>
+              <Typography className="font-normal text-black lg:w-2/5">
+                {description}
+              </Typography>
+            </div>
             <div className="mx-auto mt-6 mb-8 flex justify-center gap-4 md:mb-0 lg:justify-start">
               {socials.map(({ color, name, path }) => (
                 <a
@@ -80,9 +88,9 @@ export function Footer({ title, description, socials, menus, copyright }) {
 }
 
 Footer.defaultProps = {
-  title: "Veteriner Kliniği",
+  title: "PetVet Veteriner Kliniği",
   description:
-    "Hayvan dostlarınıza şefkatle bakım sunan, deneyimli ve profesyonel veteriner ekibimizle yanınızdayız.",
+    "Sucuklar Mahallesi Çınar Caddesi 1195/5. Sokak No: 5, Konak/Kayseri.",
   socials: [
     {
       color: "gray",
@@ -109,25 +117,25 @@ Footer.defaultProps = {
     {
       name: "Hizmetlerimiz",
       items: [
-        { name: "Genel Muayene", },
-        { name: "Acil Servis Hizmeti", },
-        { name: "Kolay Randevu Alma",},
-        { name: "Cerrahi Hizmetler",},
+        { name: "Genel Muayene", path: "/service/exam" },
+        { name: "Acil Servis Hizmeti", path: "/service/emergency" },
+        { name: "Kolay Randevu Alma", path: "/service/appointment" },
+        { name: "Cerrahi Hizmetler", path: "/service/surgery" },
       ],
     },
     {
       name: "Bilgilendirme",
       items: [
-        { name: "Anasayfa", },
-        { name: "Hakkımızda", },
-        { name: "Ekibimiz", },
-        { name: "Randevu", },
+        { name: "Anasayfa", path: "/" },
+        { name: "Hakkımızda", path: "/about" },
+        { name: "Ekibimiz", path: "/team" },
+        { name: "Randevu", path: "/appointment" },
       ],
     },
   ],
   copyright: (
     <>
-      Copyright © {year} Veteriner Kliniği.{" "}
+      Copyright © {year} PetVet Veteriner Kliniği.{" "}
       <a
         href="/"
         className="text-blue-gray-500 transition-colors hover:text-blue-500"

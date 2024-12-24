@@ -4,8 +4,8 @@ import { Home, Profile, SignIn, SignUp } from "@/pages";
 import { Navbar } from "@/widgets/layout";
 import routes from "@/routes";
 import ScrollToTopButton from "@/widgets/layout/ScrollToTopButton";
-import { ToastContainer } from "react-toastify"; // Toastify importu
-import "react-toastify/dist/ReactToastify.css"; // Toastify CSS
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css"; 
 import AppointmentForm from "@/components/AppointmentModal";
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
   const validateToken = (token) => {
     try {
       const { exp } = JSON.parse(atob(token.split(".")[1])); // JWT Token'ı çözümle
-      return exp > Date.now() / 1000; // Token süresi geçerli mi?
+      return exp > Date.now() / 1000;
     } catch {
       return false;
     }
@@ -36,11 +36,9 @@ function App() {
   }, []);
 
 
-
- 
   const handleLogin = () => {
     setIsAuthenticated(true); // Kullanıcıyı giriş yapmış olarak işaretle
-    navigate("/home"); // Giriş yaptıktan sonra yönlendir
+    navigate("/home"); 
   };
 
   const handleLogout = () => {
@@ -75,7 +73,7 @@ function App() {
             path={path}
             element={
               requiresAuth && !isAuthenticated ? (
-                <Navigate to="/sign-in" /> // Eğer kullanıcı doğrulanmamışsa giriş ekranına yönlendir
+                <Navigate to="/sign-in" /> //kullanıcı doğrulanmamışsa giriş ekranına yönlendir
               ) : (
                 element
               )
@@ -96,7 +94,6 @@ function App() {
       <ScrollToTopButton />
 
       {/* ToastContainer bildirimlerin görüneceği alan */}
-  
       <ToastContainer
         position="top-center"
         autoClose={2000}/>

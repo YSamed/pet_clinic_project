@@ -1,8 +1,7 @@
 from django.db import models
 from users.models import CustomUser
 
-# Create your models here.
-
+#Hayvan Türü Modeli
 class AnimalType(models.Model):
     name = models.CharField(max_length=100,unique=True)
     description = models.TextField(blank=True, null=True) 
@@ -10,6 +9,7 @@ class AnimalType(models.Model):
     def __str__(self):
         return self.name
     
+#Hayvan Modeli
 class Animal(models.Model):
     name = models.CharField(max_length=100)
     animal_type = models.ForeignKey(AnimalType, on_delete=models.CASCADE)
@@ -22,4 +22,4 @@ class Animal(models.Model):
     
 
 
-    
+

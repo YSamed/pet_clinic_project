@@ -19,6 +19,10 @@ export const routes = [
     name: "Hakkımızda",
     href: "#about", 
   },
+  {
+    name: "İletişim",
+    href: "#footer", 
+  },
 ];
 
 export default routes;

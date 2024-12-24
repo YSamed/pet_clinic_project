@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
-import { toast } from "react-toastify"; // React Toastify'i ekleyin
-import 'react-toastify/dist/ReactToastify.css'; // CSS'i eklemeyi unutmayın
+import { toast } from "react-toastify"; 
+import 'react-toastify/dist/ReactToastify.css'; 
 
 const AppointmentModal = ({ isOpen, closeModal }) => {
   const [animals, setAnimals] = useState([]);
@@ -15,7 +15,6 @@ const AppointmentModal = ({ isOpen, closeModal }) => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // Token'ı localStorage'dan al
   const token = localStorage.getItem("access_token");
 
   useEffect(() => {
@@ -79,7 +78,6 @@ const AppointmentModal = ({ isOpen, closeModal }) => {
         }
       );
 
-      // Randevu başarıyla oluşturulursa bildirim göster
       toast.success("Randevunuz başarıyla oluşturuldu!", {
         position: "top-center",
         autoClose: 2000,
@@ -89,7 +87,8 @@ const AppointmentModal = ({ isOpen, closeModal }) => {
     } catch (error) {
       toast.error("Seçmiş Olduğunuz Randevu Dolu", {
         position: "top-center",
-        autoClose: 2000,
+        autoClose: 2000
+        ,
       });
     }
   };
@@ -97,12 +96,11 @@ const AppointmentModal = ({ isOpen, closeModal }) => {
   // Bugünün tarihini almak için
   const today = new Date().toISOString().split("T")[0]; // YYYY-MM-DD formatına çevir
   
-  if (!isOpen) return null; // Modal kapalıysa hiçbir şey gösterme
+  if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 bg-black/50 flex justify-center items-center z-50">
       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md relative">
-        {/* Çarpı butonu */}
         <button
           onClick={closeModal}
           className="absolute top-2 right-2 text-gray-600 text-xl"

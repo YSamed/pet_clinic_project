@@ -2,12 +2,13 @@ from rest_framework import serializers
 from clinic.models import Animal, AnimalType
 from datetime import date
 
-
+#Hayvan türü için serializer
 class AnimalTypeSerializer(serializers.ModelSerializer):
     class Meta:
         model = AnimalType
         fields = ['id','name']
 
+#Hayvan için serializer
 class AnimalSerializer(serializers.ModelSerializer):
     animal_type = AnimalTypeSerializer()
     class Meta:
@@ -18,4 +19,5 @@ class AnimalSerializer(serializers.ModelSerializer):
         if value > date.today():
             raise serializers.ValidationError("Doğum tarihi gelecekte olamaz.")
         return value
+
 
